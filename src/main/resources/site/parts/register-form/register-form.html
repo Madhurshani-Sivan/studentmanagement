@@ -1,0 +1,34 @@
+<div>
+    <div>
+        <form data-th-action="${portal.componentUrl({})}" method="post">
+            <div>
+                <label>First Name: </label>
+                <input name="firstName" type="text" />
+            </div>
+            <div>
+                <label>Last Name: </label>
+                <input name="lastName" type="text" />
+            </div>
+            <div>
+                <label>Email: </label>
+                <input name="email" type="text" />
+            </div>
+            <div>
+                <label>Gender: </label>
+                <input name="gender" type="radio" value="Male"/>Male
+                <input name="gender" type="radio" value="Female"/>Female
+            </div>
+            <div>
+                <label>Birthday: </label>
+                <input type="text" name="dob">
+            </div>
+            <div>
+                <label>Teacher: </label>
+                <input type="text" name="teacher">
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

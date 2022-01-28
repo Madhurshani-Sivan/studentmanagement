@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title data-th-text="${displayName}"></title>
+        <link data-th-href="${portal.assetUrl({'_path=styles/main.css'})}"
+              media="screen"
+              rel="preload stylesheet"
+              type="text/css">
+    </head>
+    <body>
+        <header>
+            <h1 data-th-text="${displayName}">Sample header</h1>
+        </header>
+        <div data-portal-region="main">
+            <div data-th-each="component:${region.components}" data-th-if="${region}" data-th-remove="tag">
+                <div data-portal-component="${component.path}" data-th-remove="tag"></div>
+            </div>
+        </div>
+        <footer>
+            <p data-th-text="'@'+${displayName}"></p>
+        </footer>
+    </body>
+</html>

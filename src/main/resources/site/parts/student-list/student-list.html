@@ -1,0 +1,22 @@
+<table>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Birthdate</th>
+            <th>Teacher</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-th-each="student:${students}">
+            <td data-th-text="${student.firstName}"></td>
+            <td data-th-text="${student.lastName}"></td>
+            <td data-th-text="${student.email}"></td>
+            <td data-th-text="${student.gender}"></td>
+            <td data-th-text="${student.dob}"></td>
+            <td data-th-text="${student.teacher}"></td>
+        </tr>
+    </tbody>
+</table>

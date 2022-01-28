@@ -1,0 +1,47 @@
+body{
+    font-family:Tahoma,Verdana,Segoe,sans-serif;
+    font-size:14px;
+    background:#f6fffd;
+    padding:20px;
+    text-align:center;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+header{
+    padding:18px;
+    color:white;
+    background-color:mediumaquamarine;
+}
+
+footer{
+    padding:18px;
+    color:white;
+    background-color:lightseagreen;
+}
+
+h1{
+    margin-bottom:24px;
+}
+
+p{
+    margin-bottom:24px;
+    line-height:1.4;
+}
+
+div{
+    padding:25px;
+}
+
+table,th,td{
+    border:1px solid black;
+    border-collapse:collapse;
+
+}
+
+th{
+    background-color:#96D4D4;
+    width:10%;
+}
