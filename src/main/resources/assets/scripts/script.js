@@ -1,20 +1,42 @@
-$(document).ready(function (){
-    // $('#register-form').submit(function (e){
-    //     alert("Form submitted");
-    //     e.preventDefault();
-    //     var first_name=$('#first-name').val();
-    //     var last_name=$('#last-name').val();
-    //     var email=$('#email').val();
-    //     var birthdate=$('#birthdate').val();
-    //     var teacher=$('#teacher').val();
-    //
-    //     $(".error").remove();
-    //
-    //     if(first_name.length<1){
-    //         $('#first-name').after('<span class="error">This field is required</span>');
-    //     }
-    // })
-    $('#firstName').on('blur', function () {
-        alert('form submit');
+$(document).ready(function () {
+    $('#registerForm').on("submit", function (e) {
+        e.preventDefault();
+        var firstName = $('#firstName').val();
+        var lastName = $('#lastName').val();
+        var email = $('#email').val();
+        var birthdate = $('#birthdate').val();
+        var teacher = $('#teacher').val();
+
+        $('.error').remove();
+
+        if (firstName.length == 0) {
+            $('#firstName').after('<span class="error">This field is required</span>');
+        }
+        if (lastName.length == 0) {
+            $('#lastName').after('<span class="error">This field is required</span>');
+        }
+        if (email.length == 0) {
+            $('#email').after('<span class="error">This field is required</span>');
+        } else {
+            var regEx = /^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$/;
+            if (!regEx.test(email)) {
+                $('#email').after('<span class="error">Enter a valid email address</span>');
+
+            }
+        }
+        if (birthdate.length == 0) {
+            $('#birthdate').after('<span class="error">This field is required</span>');
+        }
+        if (teacher.length == 0) {
+            $('#teacher').after('<span class="error">This field is required</span>');
+        }
+        $(this).off('submit');
+        if($(this).valid()){
+            this.submit();
+        }
     });
+
+    // $('#firstName').on('blur', function () {
+    //     alert('form submit');
+    // });
 });

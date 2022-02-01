@@ -21,4 +21,24 @@ exports.get = function (req) {
     };
 
 };
+exports.post = function (req) {
+    var studentId=req.params.id;
+    log.info(studentId);
+    var response = httpclient.request({
+        method: "DELETE",
+        url: `${constants.server}/students/${studentId}`,
+        contentType: "application/json",
 
+    });
+    var res=JSON.parse(response.body);
+    var url = portal.pageUrl({
+        path: `../${constants.home}`,
+        params:{
+            response:res.message
+        }
+    });
+
+    return {
+        redirect: url,
+    };
+};
