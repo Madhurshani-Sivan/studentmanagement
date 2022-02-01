@@ -1,7 +1,9 @@
 var portal = require('/lib/xp/portal');
 var thymeleaf = require('/lib/thymeleaf');
+var httpclient = require('/lib/http-client');
+var constants = require('../../../assets/constants/main.js');
 
-exports.get = function(req) {
+exports.get = function (req) {
 
     var model = {};
     var view = resolve('register-form.html');
@@ -11,22 +13,31 @@ exports.get = function(req) {
 
 };
 
-exports.post=function(req){
-
-    var url=portal.pageUrl({
-        path:'../home',
+exports.post = function (req) {
+    var student = {
+        firstName: req.params.firstName,
+        lastName: req.params.lastName,
+        email: req.params.email,
+        gender: req.params.gender,
+        dob: req.params.dob,
+        teacher: req.params.teacher,
+    };
+    var data = JSON.stringify(student);
+    var response = httpclient.request({
+        method: "POST",
+        url: `${constants.server}/add`,
+        contentType: "application/json",
+        body: data,
+    });
+    var res=JSON.parse(response.body);
+    var url = portal.pageUrl({
+        path: `../${constants.error}`,
         params:{
-            firstName:req.params.firstName,
-            lastName:req.params.lastName,
-            email:req.params.email,
-            gender:req.params.gender,
-            dob:req.params.dob,
-            teacher:req.params.teacher,
+            response:res.message
         }
     });
 
-    return{
-      redirect:url,
+    return {
+        redirect: url,
     };
-
 };
