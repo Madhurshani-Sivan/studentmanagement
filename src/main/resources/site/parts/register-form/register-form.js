@@ -31,7 +31,7 @@ exports.post = function (req) {
     });
     var res=JSON.parse(response.body);
     var url = portal.pageUrl({
-        path: `../${constants.error}`,
+        path: `../${constants.home}`,
         params:{
             response:res.message
         }

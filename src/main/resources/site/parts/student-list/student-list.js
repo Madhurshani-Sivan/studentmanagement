@@ -4,15 +4,17 @@ var httpclient = require('/lib/http-client');
 var constants = require('../../../assets/constants/main.js');
 
 exports.get = function (req) {
-
+    log.info(req.params.response);
     var response = httpclient.request({
         method: "GET",
         url: `${constants.server}/students`,
-        contentType: "application/json"
+        contentType: "application/json",
     });
     var students = JSON.parse(response.body);
+
     var model = {
-        students: students
+        students: students,
+        message:req.params.response,
     };
     var view = resolve('student-list.html');
 
@@ -20,10 +22,13 @@ exports.get = function (req) {
         body: thymeleaf.render(view, model)
     };
 
+
+
 };
 exports.post = function (req) {
+
     var studentId=req.params.id;
-    log.info(studentId);
+
     var response = httpclient.request({
         method: "DELETE",
         url: `${constants.server}/students/${studentId}`,
@@ -37,8 +42,8 @@ exports.post = function (req) {
             response:res.message
         }
     });
-
     return {
-        redirect: url,
+
+    redirect: url,
     };
 };

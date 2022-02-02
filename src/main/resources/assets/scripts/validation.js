@@ -33,10 +33,17 @@ $(document).ready(function () {
         $(this).off('submit');
         if($(this).valid()){
             this.submit();
+            alert(`${response}`);
         }
     });
 
-    // $('#firstName').on('blur', function () {
-    //     alert('form submit');
-    // });
+
+    // $('#deleteForm').on('submit',function (e){
+    //     $(".content").toggle();
+    //
+    // })
+    // $('#close').on('click',function (e){
+    //     $(".content").toggle();
+    //
+    // })
 });
