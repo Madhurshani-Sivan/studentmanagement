@@ -1,7 +1,6 @@
 $(document).ready(function () {
 
-    $("#deleteForm").on('submit', function (e) {
-
+    $("#delete").on('click', function (e) {
         if (!confirm("Are you sure you want to delete this?")) {
             return false;
         }

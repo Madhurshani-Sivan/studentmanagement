@@ -20,13 +20,17 @@
         <td data-th-text="${student.dob}"></td>
         <td data-th-text="${student.teacher}"></td>
         <td>
-
-            <form id="deleteForm"  data-th-action="${portal.componentUrl({})}" method="post">
-                <input type="hidden" id="message" data-th-value="${message}">
-                <input name="id" type="text" data-th-value="${student.id}" hidden/>
-
-                <input type="submit" name="delete" data-th-value="Delete">
-
+            <form data-th-action="${portal.componentUrl({})}" id="deleteForm" method="post">
+                <input data-th-value="${message}" hidden id="message" name="message" type="text"/>
+                <input data-th-value="${student.id}" hidden name="id" type="text"/>
+                <input data-th-value="${student.firstName}" hidden name="firstName" type="text"/>
+                <input data-th-value="${student.lastName}" hidden name="lastName" type="text"/>
+                <input data-th-value="${student.email}" hidden name="email" type="text"/>
+                <input data-th-value="${student.gender}" hidden name="gender" type="text"/>
+                <input data-th-value="${student.dob}" hidden name="dob" type="text"/>
+                <input data-th-value="${student.teacher}" hidden name="teacher" type="text"/>
+                <input data-th-value="Delete" id="delete" name="button" type="submit">
+                <input data-th-value="View" name="button" type="submit">
             </form>
         </td>
     </tr>

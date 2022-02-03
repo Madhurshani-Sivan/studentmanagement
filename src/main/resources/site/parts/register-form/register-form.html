@@ -2,18 +2,18 @@
         type="text/javascript"></script>
 <div>
     <div>
-        <form id="registerForm" data-th-action="${portal.componentUrl({})}" method="post">
+        <form data-th-action="${portal.componentUrl({})}" id="registerForm" method="post">
             <div>
                 <label>First Name: </label>
-                <input id="firstName" name="firstName" type="text" />
+                <input data-th-value="${firstName}" id="firstName" name="firstName" type="text"/>
             </div>
             <div>
                 <label>Last Name: </label>
-                <input id="lastName" name="lastName" type="text" />
+                <input data-th-value="${lastName}" id="lastName" name="lastName" type="text"/>
             </div>
             <div>
                 <label>Email: </label>
-                <input id="email" name="email" type="email" />
+                <input data-th-value="${email}" id="email" name="email" type="email"/>
             </div>
             <div>
                 <label>Gender: </label>
@@ -22,14 +22,14 @@
             </div>
             <div>
                 <label>Birthday: </label>
-                <input  id="birthdate" type="date" name="dob" >
+                <input data-th-value="${dob}" id="birthdate" name="dob" type="date">
             </div>
             <div>
                 <label>Teacher: </label>
-                <input id="teacher" type="text" name="teacher" >
+                <input data-th-value="${teacher}" id="teacher" name="teacher" type="text">
             </div>
-            <div >
-                <input type="submit"  value="Submit" >
+            <div>
+                <input type="submit" value="Submit">
             </div>
         </form>
     </div>
