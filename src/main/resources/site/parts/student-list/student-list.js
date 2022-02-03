@@ -2,14 +2,13 @@ var portal = require('/lib/xp/portal');
 var thymeleaf = require('/lib/thymeleaf');
 var httpclient = require('/lib/http-client');
 var constants = require('../../../assets/constants/main.js');
+var common = require('../../../lib/API.js');
 
 exports.get = function (req) {
 
-    var response = httpclient.request({
-        method: "GET",
-        url: `${constants.server}/students`,
-        contentType: "application/json",
-    });
+
+    var response = common.api("GET", 'students', null);
+    log.info(response);
     var students = JSON.parse(response.body);
     var model = {
         students: students,
@@ -27,12 +26,7 @@ exports.post = function (req) {
     if (req.params.button == 'Delete') {
 
         var studentId = req.params.id;
-        var response = httpclient.request({
-            method: "DELETE",
-            url: `${constants.server}/students/${studentId}`,
-            contentType: "application/json",
-
-        });
+        var response = common.api("DELETE", `students/${studentId}`, null);
         var res = JSON.parse(response.body);
         var url = portal.pageUrl({
             path: `../${constants.home}`,

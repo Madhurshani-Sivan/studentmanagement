@@ -9,10 +9,8 @@ $(document).ready(function () {
     var message = $('#message').val();
     if (message != null && message != '') {
         var onlyUrl = window.location.href.replace(window.location.search, '');
-        console.log('*********************************************' + onlyUrl);
         alert(message);
         $('#message').val('');
         window.location.href = onlyUrl;
-
     }
 });

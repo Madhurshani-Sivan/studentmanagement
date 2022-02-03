@@ -2,6 +2,7 @@ var portal = require('/lib/xp/portal');
 var thymeleaf = require('/lib/thymeleaf');
 var httpclient = require('/lib/http-client');
 var constants = require('../../../assets/constants/main.js');
+var common = require('../../../lib/API.js');
 
 exports.get = function (req) {
 
@@ -23,6 +24,7 @@ exports.get = function (req) {
 };
 
 exports.post = function (req) {
+    log.info("******************");
 
     var student = {
         firstName: req.params.firstName,
@@ -33,12 +35,7 @@ exports.post = function (req) {
         teacher: req.params.teacher,
     };
     var data = JSON.stringify(student);
-    var response = httpclient.request({
-        method: "POST",
-        url: `${constants.server}/add`,
-        contentType: "application/json",
-        body: data,
-    });
+    var response = common.api("POST", "add", data);
     var res = JSON.parse(response.body);
     var url = portal.pageUrl({
         path: `../${constants.home}`,
