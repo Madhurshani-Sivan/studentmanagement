@@ -3,20 +3,17 @@ $(document).ready(function () {
     var gender = $('#gender').val();
     if (gender == "Male") {
         $("#genderM").prop("checked", true);
-    } else if (gender == "Female"){
+    } else if (gender == "Female") {
         $("#genderF").prop("checked", true);
-
     }
 
-    $('#registerForm').on("submit", function (e) {
-
+    $('#registerForm').on("submit", function () {
 
         var firstName = $('#firstName').val();
         var lastName = $('#lastName').val();
         var email = $('#email').val();
         var birthdate = $('#birthdate').val();
         var teacher = $('#teacher').val();
-
 
         $('.error').remove();
 
@@ -49,7 +46,6 @@ $(document).ready(function () {
             $('#teacher').after('<span class="error">This field is required</span>');
             return false;
         }
-
 
     });
 });

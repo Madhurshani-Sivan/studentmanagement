@@ -1,32 +1,32 @@
-<script data-th-src="${portal.assetUrl({'_path=scripts/validation.js'})}"
+<script data-th-src="${portal.assetUrl({'_path=scripts/register-form.js'})}"
         type="text/javascript"></script>
 <div>
     <div>
         <form data-th-action="${portal.componentUrl({})}" id="registerForm" method="post">
             <div>
-                <label>First Name: </label>
+                <label for="firstName">First Name: </label>
                 <input data-th-value="${firstName}" id="firstName" name="firstName" type="text"/>
             </div>
             <div>
-                <label>Last Name: </label>
+                <label for="lastName">Last Name: </label>
                 <input data-th-value="${lastName}" id="lastName" name="lastName" type="text"/>
             </div>
             <div>
-                <label>Email: </label>
+                <label for="email">Email: </label>
                 <input data-th-value="${email}" id="email" name="email" type="email"/>
             </div>
             <div>
-                <label>Gender: </label>
+                <label for="gender">Gender: </label>
                 <input data-th-value="${gender}" hidden id="gender">
                 <input id="genderM" name="gender" type="radio" value="Male"/>Male
                 <input id="genderF" name="gender" type="radio" value="Female"/>Female
             </div>
             <div>
-                <label>Birthday: </label>
+                <label for="birthdate">Birthday: </label>
                 <input data-th-value="${dob}" id="birthdate" name="dob" type="date">
             </div>
             <div>
-                <label>Teacher: </label>
+                <label for="teacher">Teacher: </label>
                 <input data-th-value="${teacher}" id="teacher" name="teacher" type="text">
             </div>
             <div>

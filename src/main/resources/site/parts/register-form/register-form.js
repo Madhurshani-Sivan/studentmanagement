@@ -1,6 +1,5 @@
 var portal = require('/lib/xp/portal');
 var thymeleaf = require('/lib/thymeleaf');
-var httpclient = require('/lib/http-client');
 var constants = require('../../../assets/constants/main.js');
 var common = require('../../../lib/API.js');
 
@@ -24,7 +23,6 @@ exports.get = function (req) {
 };
 
 exports.post = function (req) {
-    log.info("******************");
 
     var student = {
         firstName: req.params.firstName,
@@ -47,4 +45,5 @@ exports.post = function (req) {
     return {
         redirect: url,
     };
+
 };
