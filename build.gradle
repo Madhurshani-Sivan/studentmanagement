@@ -27,7 +27,7 @@ dependencies {
     //include "com.enonic.xp:lib-repo:${xpVersion}"
     //include "com.enonic.xp:lib-websocket:${xpVersion}"
 
-    include 'com.enonic.lib:lib-landingpage:2.0.0'
+    include 'com.enonic.lib:lib-landingpage:2.0.1'
     include 'com.enonic.lib:lib-http-client:2.1.2'
 
 }
